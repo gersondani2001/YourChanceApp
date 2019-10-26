@@ -27,7 +27,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -44,46 +44,56 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.inicio', {
+    url: '/inicio',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-inico': {
+        templateUrl: 'templates/tab-inicio.html',
+        controller: 'inicioCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.busqueda', {
+      url: '/busqueda',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-busqueda': {
+          templateUrl: 'templates/tab-busqueda.html',
+          controller: 'busquedaCtrl'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+    .state('tab.vista', {
+      url: '/vista',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-vista': {
+          templateUrl: 'templates/vista.html',
+          controller: 'vistaCtrl'
         }
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.cv', {
+    url: '/cv',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-cv': {
+        templateUrl: 'templates/tab-cv.html',
+        controller: 'cvCtrl'
+      }
+    }
+  })
+  .state('tab.perfil',{
+    url : '/perfil',
+    views: {
+      'tab-perfil':{
+        templateUrl: 'templates/tab-perfil.html',
+        controller: 'perfilCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
+  $ionicConfigProvider.platform.android.tabs.position("bottom");
 
 });
